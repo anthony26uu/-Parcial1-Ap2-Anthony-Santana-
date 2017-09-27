@@ -31,7 +31,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
             desdeFecha.Text = Convert.ToString(DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
 
 
-
+ 
 
 
         }

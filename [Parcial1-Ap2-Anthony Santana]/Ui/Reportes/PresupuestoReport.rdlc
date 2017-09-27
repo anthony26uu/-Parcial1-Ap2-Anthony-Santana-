@@ -11,11 +11,11 @@
               <TextRun>
                 <Value>Reporte Presupuestos</Value>
                 <Style>
-                  <FontFamily>times New Roman</FontFamily>
+                  <FontFamily>SimSun-ExtB</FontFamily>
                   <FontSize>26pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Format>0.00%</Format>
-                  <Color>Silver</Color>
+                  <Color>RoyalBlue</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -28,11 +28,11 @@
               <TextRun>
                 <Value />
                 <Style>
-                  <FontFamily>times New Roman</FontFamily>
+                  <FontFamily>SimSun-ExtB</FontFamily>
                   <FontSize>26pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Format>0.00%</Format>
-                  <Color>Silver</Color>
+                  <Color>RoyalBlue</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -40,11 +40,13 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox82</rd:DefaultName>
-        <Top>1.89618cm</Top>
-        <Height>1.52604cm</Height>
-        <Width>16.51383cm</Width>
+        <Top>1.10243cm</Top>
+        <Left>0.88611cm</Left>
+        <Height>1.34083cm</Height>
+        <Width>13.96084cm</Width>
         <Style>
           <Border />
+          <BackgroundColor>LightGrey</BackgroundColor>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -55,21 +57,21 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.02917cm</Width>
+              <Width>3.49021cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.02917cm</Width>
+              <Width>3.49021cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.02917cm</Width>
+              <Width>3.49021cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.02917cm</Width>
+              <Width>3.49021cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.74552cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -93,6 +95,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>RoyalBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -123,6 +126,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>RoyalBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -153,6 +157,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>RoyalBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -183,6 +188,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>RoyalBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -194,7 +200,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.74552cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -266,7 +272,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Monto.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'$'0,.00;('$'0,.00)</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -282,6 +290,7 @@
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>es-DO</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -339,10 +348,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSetPresupuesto</DataSetName>
-        <Top>4.5325cm</Top>
-        <Left>2.20903cm</Left>
-        <Height>1.2cm</Height>
-        <Width>12.11667cm</Width>
+        <Top>4.24146cm</Top>
+        <Left>0.88611cm</Left>
+        <Height>1.49104cm</Height>
+        <Width>13.96084cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -364,22 +373,10 @@
   <Width>6.5536in</Width>
   <Page>
     <PageHeader>
-      <Height>4.08974cm</Height>
+      <Height>3.4812cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Image Name="Image1">
-          <Source>Embedded</Source>
-          <Value>logo2</Value>
-          <Sizing>FitProportional</Sizing>
-          <Height>3.85162cm</Height>
-          <Width>4.35433cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Image>
         <Textbox Name="ExecutionTime">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -396,10 +393,9 @@
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
           <Top>0.31047cm</Top>
-          <Left>13.55147cm</Left>
+          <Left>12.19017cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.96236cm</Width>
-          <ZIndex>1</ZIndex>
+          <Width>4.32366cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -426,10 +422,10 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.31047cm</Top>
-          <Left>12.62255cm</Left>
+          <Left>10.66154cm</Left>
           <Height>0.6cm</Height>
           <Width>1.35224cm</Width>
-          <ZIndex>2</ZIndex>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -440,6 +436,19 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>Captura</Value>
+          <Sizing>FitProportional</Sizing>
+          <Height>3.34009cm</Height>
+          <Width>10.23996cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
       </ReportItems>
       <Style>
         <Border>
@@ -868,6 +877,14 @@ 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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="Captura">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>

@@ -118,9 +118,7 @@
 						<li><a href="../Consultas/CPresupuesto.aspx">Presupuestos</a></li>
 						
 					</ul>
-				</li>
-			
-                </li>
+				
                 <li></li>
                 <li></li>
 			    <li>
@@ -138,7 +136,7 @@
       
                 
           <div class="text-center">
-                <h1 class="page-header text-center"> Registro Presupuestos  <span class="glyphicon glyphicon-list-alt"></span></h1>
+                <h1 class="page-header text-center"> REGISTRO PRESUPUESTOS  <span class="glyphicon glyphicon-list-alt"></span></h1>
                </div>
         <span class="label label-primary">ID Presupuesto </span>
          
@@ -154,7 +152,7 @@
              
              <div class="input-group">
          
-                <asp:TextBox ID="TextBoxDescrip" placeholder="Descripcion Presupuesto"  class="input-lg"   runat="server"  Height="30px" Width="199px" ValidationGroup="guardar"></asp:TextBox>
+                <asp:TextBox ID="TextBoxDescrip" placeholder="Descripcion Presupuesto"  class="input-lg"   runat="server"  Height="30px" Width="260px" ValidationGroup="guardar"></asp:TextBox>
    
            <!--Texbox -->
         
@@ -165,7 +163,7 @@
        
           <!--Texbox -->
 
-                <asp:TextBox ID="TextBoxMonto" placeholder="99999.99"  class="input-lg"  runat="server"   Height="30px" Width="199px" ValidationGroup="guardar"></asp:TextBox>
+                <asp:TextBox ID="TextBoxMonto" placeholder="Monto $ "  class="input-lg"  runat="server"   Height="30px" Width="199px" ValidationGroup="guardar"></asp:TextBox>
 
                  <asp:RegularExpressionValidator ID="RegularExpressionValidator7"
     ControlToValidate="TextBoxMonto" runat="server"

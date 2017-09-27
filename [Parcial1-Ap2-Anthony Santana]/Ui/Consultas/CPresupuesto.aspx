@@ -130,7 +130,7 @@
           <header>
             <h1 class="page-header text-center">
 
-                  Consulta Presupuesto <span class="glyphicon glyphicon-list-alt"></span></h1>
+                  CONSULTA PRESUPUESTOS <span class="glyphicon glyphicon-list-alt"></span></h1>
         </header>
 
          
@@ -161,14 +161,13 @@
         
          <span class="label label-primary">Desde</span>
           
-            Desde </label>
-
+       
             &nbsp;&nbsp;<asp:TextBox ID="desdeFecha"  class="input-lg" placeholder="00/00/0000 "  runat="server" Width="141px" Height="30px"></asp:TextBox>
           &nbsp;&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="desdeFecha" ErrorMessage="**" Font-Bold="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
         
                &nbsp;<span class="label label-primary">Hasta</span>
             
-            <asp:TextBox ID="hastaFecha"   class="input-lg" placeholder="00/00/0000 " runat="server" Height="30px" Width="162px"></asp:TextBox>
+            <asp:TextBox ID="hastaFecha"   class="input-lg" placeholder="2017-00-00 " runat="server" Height="30px" Width="162px"></asp:TextBox>
         
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="hastaFecha" ErrorMessage="**" Font-Bold="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
         
@@ -177,7 +176,7 @@
              
 
 
-                <asp:GridView ID="PresupuestoGrid" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+                <asp:GridView ID="PresupuestoGrid" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Height="140px" Width="505px">
                     <FooterStyle BackColor="White" ForeColor="#000066" />
                     <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
@@ -188,6 +187,7 @@
                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
                     <SortedDescendingHeaderStyle BackColor="#00547E" />
                 </asp:GridView>
+           <br />
         <a href="../Reportes/Ventanas/PresupuestoReport.aspx" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-print"></span> Imprimir
         </a> 
