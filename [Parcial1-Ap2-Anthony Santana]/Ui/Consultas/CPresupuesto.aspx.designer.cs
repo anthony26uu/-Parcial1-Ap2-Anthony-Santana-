@@ -40,15 +40,6 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas {
         protected global::System.Web.UI.WebControls.TextBox buscaText;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>
@@ -67,15 +58,6 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas {
         protected global::System.Web.UI.WebControls.TextBox desdeFecha;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
-        /// <summary>
         /// hastaFecha control.
         /// </summary>
         /// <remarks>
@@ -83,15 +65,6 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox hastaFecha;
-        
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// PresupuestoGrid control.

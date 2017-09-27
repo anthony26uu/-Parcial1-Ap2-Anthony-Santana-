@@ -152,9 +152,7 @@
         
           <asp:TextBox ID="buscaText" runat="server"    class="input-lg" placeholder="ID a buscar" Height="30px" ></asp:TextBox>
         
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="buscaText" ErrorMessage="**" Font-Bold="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
-        
-         <asp:Button ID="Button1" runat="server" Text="Buscar" Height="36px" Width="88px" CssClass="btn btn-primary btn-md boton" OnClick="Button1_Click" />
+         <asp:Button ID="Button1" runat="server" Text="Buscar" Height="36px" Width="88px" CssClass="btn btn-primary btn-md boton" OnClick="Button1_Click" ValidationGroup="buscar" />
  
               <br />
               <br />
@@ -162,21 +160,17 @@
          <span class="label label-primary">Desde</span>
           
        
-            &nbsp;&nbsp;<asp:TextBox ID="desdeFecha"  class="input-lg" placeholder="00/00/0000 "  runat="server" Width="141px" Height="30px"></asp:TextBox>
-          &nbsp;&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="desdeFecha" ErrorMessage="**" Font-Bold="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
-        
-               &nbsp;<span class="label label-primary">Hasta</span>
+            &nbsp;&nbsp;<asp:TextBox ID="desdeFecha"  class="input-lg" placeholder="0000-00-00 "  runat="server" Width="141px" Height="30px" ValidationGroup="buscar"></asp:TextBox>
+          &nbsp;&nbsp;&nbsp;<span class="label label-primary">Hasta</span>
             
-            <asp:TextBox ID="hastaFecha"   class="input-lg" placeholder="2017-00-00 " runat="server" Height="30px" Width="162px"></asp:TextBox>
-        
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="hastaFecha" ErrorMessage="**" Font-Bold="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="hastaFecha"   class="input-lg" placeholder="2017-00-00 " runat="server" Height="30px" Width="162px" ValidationGroup="buscar"></asp:TextBox>
         
           <br />    
         <br />
              
 
 
-                <asp:GridView ID="PresupuestoGrid" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Height="140px" Width="505px">
+                <asp:GridView ID="PresupuestoGrid" runat="server"  BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="18px" Width="505px">
                     <FooterStyle BackColor="White" ForeColor="#000066" />
                     <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
