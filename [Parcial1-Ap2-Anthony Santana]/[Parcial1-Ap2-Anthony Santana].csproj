@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A15D3156-7BAA-46FE-9E15-F63B68EE897F}</ProjectGuid>
+    <ProjectGuid>{424704DA-20DA-463C-8C02-BCF8601D9B00}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -67,6 +67,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,7 +79,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\RegistrosDb.mdf" />
+    <Content Include="App_Data\RegistrosDb_log.ldf">
+      <DependentUpon>RegistrosDb.mdf</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
+    <Content Include="Ui\Registros\RPresupuesto.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -83,10 +92,34 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Registros\RPresupuesto.aspx.cs">
+      <DependentUpon>RPresupuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ui\Registros\RPresupuesto.aspx.designer.cs">
+      <DependentUpon>RPresupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilidades.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Ui\Consultas\" />
+    <Folder Include="Ui\Reportes\Ventanas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{82A61530-6909-49F7-B37A-50A60E195A38}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{475379B0-539C-4400-A1DB-7CE9DB8C76A9}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -101,7 +134,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>56110</DevelopmentServerPort>
+          <DevelopmentServerPort>59897</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:56110/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
