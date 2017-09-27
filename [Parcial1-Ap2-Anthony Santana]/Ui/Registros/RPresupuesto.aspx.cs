@@ -12,10 +12,11 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
 {
     public partial class RPresupuesto : System.Web.UI.Page
     {
+        Presupuestos p = new Presupuestos();
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            
+            TextFecha.Text = (DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
 
             ScriptResourceDefinition myScriptResDef = new ScriptResourceDefinition();
             myScriptResDef.Path = "~/Scripts/jquery-1.4.2.min.js";
@@ -30,7 +31,9 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
             TextBoxDescrip.Text = "";
             TextBoxMonto.Text = "";
             TextBoxID.Text = "";
-            TextFecha.Text = Convert.ToString(DateTime.Now);
+
+            TextFecha.Text = (DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
+
             TextBoxID.Focus();
 
         }
@@ -54,14 +57,15 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
                         guardar.PresupuestoId = (Utilidades.TOINT(TextBoxID.Text));
                         guardar.Descripcion = TextBoxDescrip.Text;
                         guardar.Monto = Convert.ToDecimal(TextBoxMonto.Text);
+                    
 
-                        guardar.Fecha = DateTime.Now;
-                       
+                        guardar.Fecha = Convert.ToDateTime(TextFecha.Text);
 
 
 
-                      
-                            if (id != guardar.PresupuestoId)
+
+
+                    if (id != guardar.PresupuestoId)
                             {
 
                            
@@ -149,7 +153,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
                 {
                    
                     TextBoxMonto.Text = Convert.ToString(presu.Monto);
-                    TextFecha.Text = Convert.ToString(presu.Fecha);
+                    TextFecha.Text = (presu.Fecha.Year + "-" + presu.Fecha.Month + "-" + presu.Fecha.Day);
                     TextBoxDescrip.Text = presu.Descripcion;
 
 

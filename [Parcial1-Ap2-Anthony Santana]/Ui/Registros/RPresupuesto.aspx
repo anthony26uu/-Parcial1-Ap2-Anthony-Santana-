@@ -104,34 +104,22 @@
 
 		<div id="header" >
 			<ul class="nav">
-				<li><a href="../Inicio.aspx">Inicio</a></li>
-                <li><a href=""> Punto de Ventas</a></li>
+				
 
 				<li><a href="">Registros</a>
 					<ul>
-						<li><a href="RegistroUsuarios.aspx">Registro Usuario</a></li>
-						<li><a href="RCategoria.aspx"> Categoria</a></li>
-						<li><a href="RegistroArticulos.aspx">Registro Articulos</a></li>
-                        <li><a href="RegistroClientes.aspx">Registro Clientes</a></li>
+						<li><a href="RPresupuesto.aspx">Registro Presupuestos</a></li>
+						
 						
 					</ul>
 				</li>
 				<li><a href="">Consultas</a>
 					<ul>
-						<li><a href="../Consultas/ConsultaUsuario.aspx">Usuario</a></li>
-						<li><a href="../Consultas/ConsultaArticulos.aspx">Articulos</a></li>
-						<li><a href="../Consultas/ConsultaClientes.aspx">Clientes</a></li>
-						<li><a href="../Consultas/ConsultaDeudas.aspx">Deudas</a></li>
-                        <li><a href="../Consultas/ConsultaCategorias.aspx">Categorias</a></li>
+						<li><a href="../Consultas/CPresupuesto.aspx">Presupuestos</a></li>
+						
 					</ul>
 				</li>
-				<li><a href="../SaldarDeudas.aspx">Sadar Deudas</a></li>
-                <li><a href="">Acerca de</a>
-                <ul>
-									<li><a href="">Contactos</a></li>
-									<li><a href="">Version</a></li>
-									
-								</ul>
+			
                 </li>
                 <li></li>
                 <li></li>
