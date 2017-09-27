@@ -34,6 +34,9 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
 
             TextFecha.Text = (DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
 
+            RequiredFieldValidator5.Text = "";
+            RequiredFieldValidator6.Text = "";
+            RequiredFieldValidator1.Text = "";
             TextBoxID.Focus();
 
         }

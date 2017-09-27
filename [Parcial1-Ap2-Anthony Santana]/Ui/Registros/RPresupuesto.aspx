@@ -167,6 +167,10 @@
 
                 <asp:TextBox ID="TextBoxMonto" placeholder="99999.99"  class="input-lg"  runat="server"   Height="30px" Width="199px" ValidationGroup="guardar"></asp:TextBox>
 
+                 <asp:RegularExpressionValidator ID="RegularExpressionValidator7"
+    ControlToValidate="TextBoxMonto" runat="server"
+    ErrorMessage="Solo Numeros"
+    ValidationExpression="\d+" ForeColor="Red" ValidationGroup="guardar"></asp:RegularExpressionValidator>
        
                   <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TextBoxMonto" ErrorMessage="**" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
                

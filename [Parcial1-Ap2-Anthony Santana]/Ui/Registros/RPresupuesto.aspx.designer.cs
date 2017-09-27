@@ -85,6 +85,15 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros {
         protected global::System.Web.UI.WebControls.TextBox TextBoxMonto;
         
         /// <summary>
+        /// RegularExpressionValidator7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator7;
+        
+        /// <summary>
         /// RequiredFieldValidator6 control.
         /// </summary>
         /// <remarks>

@@ -151,6 +151,9 @@
           <span class="label label-primary">ID / Nombre</span>
         
           <asp:TextBox ID="buscaText" runat="server"    class="input-lg" placeholder="ID a buscar" Height="30px" ></asp:TextBox>
+        
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="buscaText" ErrorMessage="**" Font-Bold="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
+        
          <asp:Button ID="Button1" runat="server" Text="Buscar" Height="36px" Width="88px" CssClass="btn btn-primary btn-md boton" OnClick="Button1_Click" />
  
               <br />
@@ -161,9 +164,14 @@
             Desde </label>
 
             &nbsp;&nbsp;<asp:TextBox ID="desdeFecha"  class="input-lg" placeholder="00/00/0000 "  runat="server" Width="141px" Height="30px"></asp:TextBox>
-          &nbsp;&nbsp;  <span class="label label-primary">Hasta</span>
+          &nbsp;&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="desdeFecha" ErrorMessage="**" Font-Bold="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
+        
+               &nbsp;<span class="label label-primary">Hasta</span>
             
             <asp:TextBox ID="hastaFecha"   class="input-lg" placeholder="00/00/0000 " runat="server" Height="30px" Width="162px"></asp:TextBox>
+        
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="hastaFecha" ErrorMessage="**" Font-Bold="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
+        
           <br />    
         <br />
              

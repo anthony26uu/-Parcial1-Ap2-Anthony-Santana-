@@ -13,10 +13,25 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ScriptResourceDefinition myScriptResDef = new ScriptResourceDefinition();
+            myScriptResDef.Path = "~/Scripts/jquery-1.4.2.min.js";
+            myScriptResDef.DebugPath = "~/Scripts/jquery-1.4.2.js";
+            myScriptResDef.CdnPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js";
+            myScriptResDef.CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.js";
+            ScriptManager.ScriptResourceMapping.AddDefinition("jquery", null, myScriptResDef);
+
             Presupuestos presupuesto = new Presupuestos();
             PresupuestoGrid.DataSource = PresupuestoBLL.GetListodo();
             PresupuestoGrid.DataBind();
             Lista = PresupuestoBLL.GetListodo();
+            RequiredFieldValidator1.Text = "";
+            RequiredFieldValidator2.Text = "";
+            RequiredFieldValidator3.Text = "";
+
+            desdeFecha.Text = Convert.ToString(DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
+
+
+
 
 
         }
@@ -31,6 +46,10 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
             if (DropFiltro.SelectedIndex == 0)
             {
                 buscaText.Text = "";
+                RequiredFieldValidator1.Enabled = false;
+                RequiredFieldValidator2.Enabled = false;
+                RequiredFieldValidator3.Enabled = false;
+
 
 
                 if (PresupuestoBLL.GetListodo().Count == 0)
@@ -48,6 +67,9 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
             }
             else if (DropFiltro.SelectedIndex == 1)
             {
+              
+                RequiredFieldValidator2.Enabled = false;
+                RequiredFieldValidator3.Enabled = false;
                 if (string.IsNullOrWhiteSpace(buscaText.Text))
                 {
 
@@ -81,8 +103,18 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
 
             else if (DropFiltro.SelectedIndex == 2)
             {
+                RequiredFieldValidator1.Enabled = false;
 
-                DateTime desde = Convert.ToDateTime(desdeFecha.Text);
+                if (desdeFecha.Text == "" && desdeFecha.Text == null)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fecha invalida ');</script>");
+
+                }
+                else
+                {
+
+
+                 DateTime desde = Convert.ToDateTime(desdeFecha.Text);
                 DateTime hasta = Convert.ToDateTime(desdeFecha.Text);
 
                 if (desdeFecha.Text != "" && hastaFecha.Text != "")
@@ -103,7 +135,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Ingrese Fecha');</script>");
                 }
 
-
+                }
             }
             else if (DropFiltro.SelectedIndex == 3)
             {
@@ -120,7 +152,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
 
             }
 
-           
+            
 
 
 
