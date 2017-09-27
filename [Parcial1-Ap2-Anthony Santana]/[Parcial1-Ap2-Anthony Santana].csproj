@@ -108,6 +108,7 @@
     <Content Include="App_Data\RegistrosDb_log.ldf">
       <DependentUpon>RegistrosDb.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\Script.sql" />
     <Content Include="Global.asax" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

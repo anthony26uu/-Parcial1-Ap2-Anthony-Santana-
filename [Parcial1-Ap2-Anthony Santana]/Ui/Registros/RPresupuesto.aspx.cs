@@ -24,6 +24,8 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
             myScriptResDef.CdnPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js";
             myScriptResDef.CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.js";
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery", null, myScriptResDef);
+
+            TextBoxID.Focus();
         }
 
         private void Limpiar()
@@ -40,7 +42,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
             TextBoxID.Focus();
 
         }
-      
+
 
         protected void Button4_Click(object sender, EventArgs e)
         {
@@ -57,38 +59,34 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
                 if (IsValid)
                 {
 
-                        guardar.PresupuestoId = (Utilidades.TOINT(TextBoxID.Text));
-                        guardar.Descripcion = TextBoxDescrip.Text;
-                        guardar.Monto = Convert.ToDecimal(TextBoxMonto.Text);
-                    
-
-                        guardar.Fecha = Convert.ToDateTime(TextFecha.Text);
+                    guardar.PresupuestoId = (Utilidades.TOINT(TextBoxID.Text));
+                    guardar.Descripcion = TextBoxDescrip.Text;
+                    guardar.Monto = Convert.ToDecimal(TextBoxMonto.Text);
+                    guardar.Fecha = Convert.ToDateTime(TextFecha.Text);
 
 
 
 
 
                     if (id != guardar.PresupuestoId)
-                            {
+                    {
 
-                           
-                               PresupuestoBLL.Mofidicar(guardar);
-
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Presupuesto modificado con exito');</script>");
+                        PresupuestoBLL.Mofidicar(guardar);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Presupuesto modificado con exito');</script>");
 
 
-                            }
-                            else
-                            {
-                                PresupuestoBLL.Mofidicar(guardar);
-                                PresupuestoBLL.Guardar(guardar);
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Nuevo Presupuesto agregado!');</script>");
+                    }
+                    else
+                    {
+                        PresupuestoBLL.Mofidicar(guardar);
+                        PresupuestoBLL.Guardar(guardar);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Nuevo Presupuesto agregado!');</script>");
 
 
-                            }
-                      
+                    }
 
-                    
+
+
                 }
                 Limpiar();
             }
@@ -105,9 +103,6 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
             if (string.IsNullOrWhiteSpace(TextBoxID.Text))
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No Existe Presupuesto con este id');</script>");
-
-
-
                 Limpiar();
 
 
@@ -127,8 +122,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
                 else
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se pudo eliminar El Presupuesto');</script>");
-
-
+                   
                 }
             }
 
@@ -142,8 +136,6 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
 
 
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No Existe Presupuesto con este ido');</script>");
-
-
                 Limpiar();
             }
             else
@@ -154,7 +146,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
                 var presu = PresupuestoBLL.Buscar(p => p.PresupuestoId == id);
                 if (presu != null)
                 {
-                   
+
                     TextBoxMonto.Text = Convert.ToString(presu.Monto);
                     TextFecha.Text = (presu.Fecha.Year + "-" + presu.Fecha.Month + "-" + presu.Fecha.Day);
                     TextBoxDescrip.Text = presu.Descripcion;

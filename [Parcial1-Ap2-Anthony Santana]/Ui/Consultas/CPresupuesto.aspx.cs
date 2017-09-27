@@ -24,31 +24,27 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
             PresupuestoGrid.DataSource = PresupuestoBLL.GetListodo();
             PresupuestoGrid.DataBind();
             Lista = PresupuestoBLL.GetListodo();
-          
-
-      
- 
+            buscaText.Focus();
+            
 
 
         }
         public static List<Presupuestos> Lista { get; set; }
-
-
+        
         public void Selecionar(int id)
         {
-
-
 
             if (DropFiltro.SelectedIndex == 0)
             {
                 buscaText.Text = "";
-               
+
 
 
                 if (PresupuestoBLL.GetListodo().Count == 0)
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado Presupuestos');</script>");
-
+                    buscaText.Text = "";
+                    buscaText.Focus();
                 }
                 else
                 {
@@ -60,13 +56,14 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
             }
             else if (DropFiltro.SelectedIndex == 1)
             {
-              
-              
+
+
                 if (string.IsNullOrWhiteSpace(buscaText.Text))
                 {
 
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Campo ID Vaccio');</script>");
-
+                    buscaText.Text = "";
+                    buscaText.Focus();
                 }
                 else
                 {
@@ -76,17 +73,18 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                     {
                         Lista = PresupuestoBLL.GetList(p => p.PresupuestoId == id);
 
-                        if(Lista.Count==0)
+                        if (Lista.Count == 0)
                         {
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado presupuesto con este Id');</script>");
-
+                            buscaText.Text = "";
+                            buscaText.Focus();
                         }
                         else
                         {
                             PresupuestoGrid.DataSource = Lista;
                             PresupuestoGrid.DataBind();
                         }
-                       
+
 
 
 
@@ -96,7 +94,8 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                     else if (PresupuestoGrid.DataSource == null)
                     {
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado presupuesto con este Id');</script>");
-
+                        buscaText.Text = "";
+                        buscaText.Focus();
 
                     }
 
@@ -105,45 +104,54 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
 
             else if (DropFiltro.SelectedIndex == 2)
             {
-              
+
                 if (desdeFecha.Text == "" && desdeFecha.Text == null)
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fecha invalida ');</script>");
 
+                    hastaFecha.Text = "";
+                    desdeFecha.Text = "";
+                    desdeFecha.Focus();
                 }
                 else
                 {
-                    DateTime  desde=DateTime.Now;
-                    DateTime hasta=DateTime.Now;
-                    if (desdeFecha.Text == "") 
+                    DateTime desde = DateTime.Now;
+                    DateTime hasta = DateTime.Now;
+                    if (desdeFecha.Text == "")
                     {
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fecha invalida ');</script>");
-
+                        hastaFecha.Text = "";
+                        desdeFecha.Text = "";
+                        desdeFecha.Focus();
                     }
                     else
                     {
-                         desde = Convert.ToDateTime(desdeFecha.Text);
-                         hasta = Convert.ToDateTime(desdeFecha.Text);
+                        desde = Convert.ToDateTime(desdeFecha.Text);
+                        hasta = Convert.ToDateTime(desdeFecha.Text);
                     }
-                
 
-                if (desdeFecha.Text != "" && hastaFecha.Text != "")
-                {
-                    if (desde <= hasta)
+
+                    if (desdeFecha.Text != "" && hastaFecha.Text != "")
                     {
-                        Lista = PresupuestoBLL.GetList(p => p.Fecha >= desde.Date && p.Fecha <= hasta.Date);
-                        PresupuestoGrid.DataSource = Lista;
-                        PresupuestoGrid.DataBind();
+                        if (desde <= hasta)
+                        {
+                            Lista = PresupuestoBLL.GetList(p => p.Fecha >= desde.Date && p.Fecha <= hasta.Date);
+                            PresupuestoGrid.DataSource = Lista;
+                            PresupuestoGrid.DataBind();
+                        }
+                        else
+                        {
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fecha invalida debe ser menor');</script>");
+                            desdeFecha.Text = "";
+                            hastaFecha.Text = "";
+                            desdeFecha.Focus();
+                        }
                     }
                     else
                     {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fecha invalida debe ser menor');</script>");
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Ingrese Fecha');</script>");
+                        desdeFecha.Focus();
                     }
-                }
-                else
-                {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Ingrese Fecha');</script>");
-                }
 
                 }
             }
@@ -151,20 +159,33 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
             {
                 if (buscaText.Text == "")
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debe escribir el Nombre a buscar');</script>");
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debe escribir la descripcion a buscar');</script>");
+
+                    buscaText.Text = "";
+                    buscaText.Focus();
                 }
                 else
                 {
                     Lista = PresupuestoBLL.GetList(p => p.Descripcion == buscaText.Text);
-                    PresupuestoGrid.DataSource = Lista;
-                    PresupuestoGrid.DataBind();
+                    if (Lista.Count == 0)
+                    {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado presupuesto con esa descripcion');</script>");
+                        buscaText.Text="";
+                        buscaText.Focus();
+                    }
+                    else
+                    {
+                        PresupuestoGrid.DataSource = Lista;
+                        PresupuestoGrid.DataBind();
+                    }
+
+
+
+                   
+                  
                 }
 
             }
-
-            
-
-
 
         }
 
