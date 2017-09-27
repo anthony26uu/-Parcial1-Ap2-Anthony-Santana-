@@ -141,7 +141,7 @@
 
         <span class="label label-primary">ID / Nombre</span>
 
-        <asp:TextBox ID="buscaText" runat="server" class="input-lg" placeholder="ID a buscar" Height="30px"></asp:TextBox>
+        <asp:TextBox ID="buscaText" runat="server" class="input-lg" placeholder="ID o Descripcion" Height="30px"></asp:TextBox>
 
         <asp:Button ID="Button1" runat="server" Text="Buscar" Height="36px" Width="88px" CssClass="btn btn-primary btn-md boton" OnClick="Button1_Click" ValidationGroup="buscar" />
 
@@ -161,7 +161,7 @@
 
 
 
-        <asp:GridView ID="PresupuestoGrid" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="18px" Width="505px">
+        <asp:GridView ID="PresupuestoGrid" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="18px" Width="519px">
             <FooterStyle BackColor="White" ForeColor="#000066" />
             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />

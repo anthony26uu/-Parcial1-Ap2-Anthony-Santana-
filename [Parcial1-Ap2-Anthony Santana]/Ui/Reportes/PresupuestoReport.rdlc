@@ -9,13 +9,13 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reporte Presupuestos</Value>
+                <Value>Listado</Value>
                 <Style>
-                  <FontFamily>SimSun-ExtB</FontFamily>
-                  <FontSize>26pt</FontSize>
+                  <FontFamily>Tw Cen MT Condensed Extra Bold</FontFamily>
+                  <FontSize>28pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Format>0.00%</Format>
-                  <Color>RoyalBlue</Color>
+                  <Color>DimGray</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -28,11 +28,11 @@
               <TextRun>
                 <Value />
                 <Style>
-                  <FontFamily>SimSun-ExtB</FontFamily>
-                  <FontSize>26pt</FontSize>
+                  <FontFamily>Tw Cen MT Condensed Extra Bold</FontFamily>
+                  <FontSize>28pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Format>0.00%</Format>
-                  <Color>RoyalBlue</Color>
+                  <Color>DimGray</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -46,7 +46,7 @@
         <Width>13.96084cm</Width>
         <Style>
           <Border />
-          <BackgroundColor>LightGrey</BackgroundColor>
+          <BackgroundColor>White</BackgroundColor>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>

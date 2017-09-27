@@ -115,6 +115,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                 }
                 else
                 {
+                  
                     DateTime desde = DateTime.Now;
                     DateTime hasta = DateTime.Now;
                     if (desdeFecha.Text == "")
@@ -138,6 +139,8 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                             Lista = PresupuestoBLL.GetList(p => p.Fecha >= desde.Date && p.Fecha <= hasta.Date);
                             PresupuestoGrid.DataSource = Lista;
                             PresupuestoGrid.DataBind();
+
+                            
                         }
                         else
                         {
