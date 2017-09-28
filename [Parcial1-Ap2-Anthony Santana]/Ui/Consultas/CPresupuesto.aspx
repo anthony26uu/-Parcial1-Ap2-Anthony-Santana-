@@ -145,6 +145,8 @@
 
         <asp:Button ID="Button1" runat="server" Text="Buscar" Height="36px" Width="88px" CssClass="btn btn-primary btn-md boton" OnClick="Button1_Click" ValidationGroup="buscar" />
 
+        
+
         <br />
         <br />
 
