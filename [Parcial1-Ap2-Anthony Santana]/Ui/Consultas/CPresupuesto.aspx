@@ -153,13 +153,13 @@
         <span class="label label-primary">Desde</span>
 
 
-        &nbsp;&nbsp;<asp:TextBox ID="desdeFecha" class="input-lg" placeholder="0000-00-00 " runat="server" Width="141px" Height="30px" ValidationGroup="buscar"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;<span class="label label-primary">Hasta</span>
-
-        <asp:TextBox ID="hastaFecha" class="input-lg" placeholder="2017-00-00 " runat="server" Height="30px" Width="162px" ValidationGroup="buscar"></asp:TextBox>
-
+        &nbsp;&nbsp;<asp:TextBox ID="desdeFecha" TextMode="Date" runat="server" class="form-control" Height="25"  Width="175"></asp:TextBox>
+         &nbsp;&nbsp;&nbsp;<span class="label label-primary">Hasta</span>
+          <asp:TextBox ID="hastaFecha" TextMode="Date" runat="server" class="form-control" Height="25"  Width="175"></asp:TextBox>
+  
+     
         <br />
-        <br />
+            <br />
 
 
 

@@ -149,9 +149,10 @@
 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxDescrip" ErrorMessage="**" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
-            <asp:TextBox ID="TextFecha" runat="server" placeholder="00/00/0000 " class="input-lg" ReadOnly="True" Width="201px" Height="30px" ValidationGroup="guardar"></asp:TextBox>
+            <asp:TextBox ID="TextFecha" runat="server"  class="input-lg" ReadOnly="True" Width="201px" Height="30px" ValidationGroup="guardar"></asp:TextBox>
 
 
+          
             <!--Texbox -->
 
             <asp:TextBox ID="TextBoxMonto" placeholder="Monto $ " class="input-lg" runat="server" Height="30px" Width="199px" ValidationGroup="guardar"></asp:TextBox>
