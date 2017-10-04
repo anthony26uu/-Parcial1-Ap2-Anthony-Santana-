@@ -100,6 +100,7 @@
                     <li><a href="">Registros</a>
                         <ul>
                             <li><a href="RPresupuesto.aspx">Registro Presupuestos</a></li>
+                             <li><a href="RCategoria.aspx">Registro Categoria</a></li>
 
 
                         </ul>

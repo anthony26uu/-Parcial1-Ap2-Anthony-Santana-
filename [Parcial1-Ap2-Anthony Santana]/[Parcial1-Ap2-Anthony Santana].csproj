@@ -124,6 +124,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Ui\Consultas\CPresupuesto.aspx" />
+    <Content Include="Ui\Registros\RCategoria.aspx" />
     <Content Include="Ui\Registros\RPresupuesto.aspx" />
     <Content Include="Ui\Reportes\Ventanas\PresupuestoReport.aspx" />
     <Content Include="Web.config" />
@@ -145,6 +146,13 @@
     </Compile>
     <Compile Include="Ui\Consultas\CPresupuesto.aspx.designer.cs">
       <DependentUpon>CPresupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Registros\RCategoria.aspx.cs">
+      <DependentUpon>RCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ui\Registros\RCategoria.aspx.designer.cs">
+      <DependentUpon>RCategoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ui\Registros\RPresupuesto.aspx.cs">
       <DependentUpon>RPresupuesto.aspx</DependentUpon>

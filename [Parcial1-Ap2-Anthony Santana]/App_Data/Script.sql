@@ -5,3 +5,10 @@
     [Descripcion]   VARCHAR (80) NULL,
     PRIMARY KEY CLUSTERED ([PresupuestoId] ASC)
 );
+
+
+CREATE TABLE [dbo].[Categorias] (
+    [CategoriaId]     INT          IDENTITY (1, 1) NOT NULL,
+    [NombreCategoria] VARCHAR (80) NULL,
+    PRIMARY KEY CLUSTERED ([CategoriaId] ASC)
+);

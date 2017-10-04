@@ -98,7 +98,7 @@
                     <li><a href="">Registros</a>
                         <ul>
                             <li><a href="../Registros/RPresupuesto.aspx">Registro Presupuestos</a></li>
-
+                             <li><a href="../Registros/RCategoria.aspx">Registro Categoria</a></li>
                         </ul>
                     </li>
                     <li><a href="">Consultas</a>

@@ -16,8 +16,10 @@ namespace DAL
 
 
         }
-        public DbSet<Presupuestos> articuloDb { get; set; }
+        public DbSet<Presupuestos> presupuestoDb { get; set; }
+        public DbSet<Categorias> categoriaDb { get; set; }
 
-      
+
+
     }
 }
