@@ -108,6 +108,7 @@
 				<li><a href="">Consultas</a>
 					<ul>
 						<li><a href="../Consultas/CPresupuesto.aspx">Presupuesto</a></li>
+                        <li><a href="../Consultas/CCategorias.aspx">Categorias</a></li>
 						
 					</ul>
 				</li>
@@ -128,7 +129,7 @@
 
           <h1 class="page-header text-center">
 
-                  Registro Categoria <span class=" 	glyphicon glyphicon-list-alt"></span></h1  >
+                   Reporte de Compras <span class=" 	glyphicon glyphicon-shopping-cart"></span></h1  >
          
 
         

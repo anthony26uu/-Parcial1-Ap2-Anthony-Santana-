@@ -63,7 +63,8 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
                     guardar.Descripcion = TextBoxDescrip.Text;
                     guardar.Monto = Convert.ToDecimal(TextBoxMonto.Text);
                     guardar.Fecha = Convert.ToDateTime(TextFecha.Text);
-
+                 ///   guardar.IDCategoria = DropDownList1.va;
+                    guardar.NombreCategoria = DropDownList1.Text;
 
 
 
@@ -150,7 +151,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
                     TextBoxMonto.Text = Convert.ToString(presu.Monto);
                     TextFecha.Text = (presu.Fecha.Year + "-" + presu.Fecha.Month + "-" + presu.Fecha.Day);
                     TextBoxDescrip.Text = presu.Descripcion;
-
+                    DropDownList1.Text = presu.NombreCategoria;
 
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Resultados');</script>");
 

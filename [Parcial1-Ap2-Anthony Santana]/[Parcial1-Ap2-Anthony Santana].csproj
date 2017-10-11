@@ -96,6 +96,28 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="RegistrosDbDataSet.xsc">
+      <DependentUpon>RegistrosDbDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="RegistrosCategorias.xsc">
+      <DependentUpon>RegistrosCategorias.xsd</DependentUpon>
+    </Content>
+    <None Include="RegistrosCategorias.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RegistrosCategorias.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="RegistrosCategorias.xss">
+      <DependentUpon>RegistrosCategorias.xsd</DependentUpon>
+    </Content>
+    <None Include="RegistrosDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RegistrosDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="RegistrosDbDataSet.xss">
+      <DependentUpon>RegistrosDbDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -104,9 +126,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\RegistrosDb.mdf" />
+    <Content Include="App_Data\RegistrosDb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="App_Data\RegistrosDb_log.ldf">
       <DependentUpon>RegistrosDb.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Data\Script.sql" />
     <Content Include="Global.asax" />
@@ -123,9 +148,11 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Ui\Consultas\CCategorias.aspx" />
     <Content Include="Ui\Consultas\CPresupuesto.aspx" />
     <Content Include="Ui\Registros\RCategoria.aspx" />
     <Content Include="Ui\Registros\RPresupuesto.aspx" />
+    <Content Include="Ui\Reportes\Ventanas\CategoraReport.aspx" />
     <Content Include="Ui\Reportes\Ventanas\PresupuestoReport.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -139,7 +166,24 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RegistrosCategorias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistrosCategorias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrosDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistrosDbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Ui\Consultas\CCategorias.aspx.cs">
+      <DependentUpon>CCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ui\Consultas\CCategorias.aspx.designer.cs">
+      <DependentUpon>CCategorias.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Consultas\CPresupuesto.aspx.cs">
       <DependentUpon>CPresupuesto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -160,6 +204,13 @@
     </Compile>
     <Compile Include="Ui\Registros\RPresupuesto.aspx.designer.cs">
       <DependentUpon>RPresupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Reportes\Ventanas\CategoraReport.aspx.cs">
+      <DependentUpon>CategoraReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ui\Reportes\Ventanas\CategoraReport.aspx.designer.cs">
+      <DependentUpon>CategoraReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ui\Reportes\Ventanas\PresupuestoReport.aspx.cs">
       <DependentUpon>PresupuestoReport.aspx</DependentUpon>
@@ -184,6 +235,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Ui\Reportes\CategoriaReport .rdlc" />
     <EmbeddedResource Include="Ui\Reportes\PresupuestoReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>

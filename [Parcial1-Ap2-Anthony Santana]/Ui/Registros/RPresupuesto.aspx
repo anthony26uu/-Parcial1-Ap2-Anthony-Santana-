@@ -99,7 +99,7 @@
 
                     <li><a href="">Registros</a>
                         <ul>
-                            <li><a href="RPresupuesto.aspx">Registro Presupuestos</a></li>
+                           
                              <li><a href="RCategoria.aspx">Registro Categoria</a></li>
 
 
@@ -108,6 +108,8 @@
                     <li><a href="">Consultas</a>
                         <ul>
                             <li><a href="../Consultas/CPresupuesto.aspx">Presupuestos</a></li>
+                            <li><a href="../Consultas/CCategorias.aspx">Categorias</a></li>
+						
 
                         </ul>
 
@@ -155,6 +157,13 @@
 
           
             <!--Texbox -->
+
+            <asp:DropDownList ID="DropDownList1" placeholder="Monto $ " class="input-lg" runat="server" Height="41px" Width="199px" ValidationGroup="guardar" DataSourceID="SqlDataSource2" DataTextField="NombreCategoria" DataValueField="CategoriaId">
+            </asp:DropDownList>
+
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConStr %>" SelectCommand="SELECT [NombreCategoria], [CategoriaId] FROM [Categorias]"></asp:SqlDataSource>
+            <asp:EntityDataSource ID="EntityDataSource1" runat="server">
+            </asp:EntityDataSource>
 
             <asp:TextBox ID="TextBoxMonto" placeholder="Monto $ " class="input-lg" runat="server" Height="30px" Width="199px" ValidationGroup="guardar"></asp:TextBox>
 

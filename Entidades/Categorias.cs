@@ -18,9 +18,9 @@ namespace Entidades
 
         }
      
-        public Categorias(int catgoriaID, string nombre)
+        public Categorias(int categoriaId, string nombre)
         {
-            this.CategoriaId = catgoriaID;
+            this.CategoriaId = categoriaId;
             this.NombreCategoria = nombre;
         }
 

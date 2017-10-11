@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CPresupuesto.aspx.cs" Inherits="_Parcial1_Ap2_Anthony_Santana_.Ui.Consultas.CPresupuesto" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CCategorias.aspx.cs" Inherits="_Parcial1_Ap2_Anthony_Santana_.Ui.Consultas.CCategorias" %>
+
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -103,8 +104,8 @@
                     </li>
                     <li><a href="">Consultas</a>
                         <ul>
-                          
-                            <li><a href="CCategorias.aspx">Categorias</a></li>
+                            <li><a href="CPresupuesto.aspx">Presupuesto</a></li>
+                        
 						
 
                         </ul>
@@ -123,7 +124,7 @@
 
 
         <header>
-            <h1 class="page-header text-center">CONSULTA PRESUPUESTOS <span class="glyphicon glyphicon-list-alt"></span></h1>
+            <h1 class="page-header text-center">CONSULTA CATEGORIAS <span class="glyphicon glyphicon-list-alt"></span></h1>
         </header>
 
 
@@ -150,14 +151,6 @@
         
 
         <br />
-        <br />
-
-        <span class="label label-primary">Desde</span>
-
-
-        &nbsp;&nbsp;<asp:TextBox ID="desdeFecha" TextMode="Date" runat="server" class="form-control" Height="25"  Width="175"></asp:TextBox>
-         &nbsp;&nbsp;&nbsp;<span class="label label-primary">Hasta</span>
-          <asp:TextBox ID="hastaFecha" TextMode="Date" runat="server" class="form-control" Height="25"  Width="175"></asp:TextBox>
   
      
         <br />
@@ -177,7 +170,7 @@
             <SortedDescendingHeaderStyle BackColor="#00547E" />
         </asp:GridView>
         <br />
-        <a href="../Reportes/Ventanas/PresupuestoReport.aspx" class="btn btn-info btn-lg">
+        <a href="../Reportes/Ventanas/CategoraReport.aspx" class="btn btn-info btn-lg">
             <span class="glyphicon glyphicon-print"></span>Imprimir
         </a>
         <br />
