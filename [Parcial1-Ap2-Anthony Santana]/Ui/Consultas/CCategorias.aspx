@@ -134,7 +134,7 @@
 
             <asp:ListItem>Todo</asp:ListItem>
             <asp:ListItem>ID</asp:ListItem>
-            <asp:ListItem>Fecha</asp:ListItem>
+           
             <asp:ListItem>Nombre</asp:ListItem>
         </asp:DropDownList>
 

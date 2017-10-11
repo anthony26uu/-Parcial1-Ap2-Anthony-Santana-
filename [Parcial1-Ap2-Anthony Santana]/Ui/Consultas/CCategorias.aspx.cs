@@ -96,7 +96,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                 }
             }
 
-            else if (DropFiltro.SelectedIndex == 3)
+            else if (DropFiltro.SelectedIndex == 2)
             {
                 if (buscaText.Text == "")
                 {
