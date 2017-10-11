@@ -129,7 +129,7 @@
 
           <h1 class="page-header text-center">
 
-                   Reporte de Compras <span class=" 	glyphicon glyphicon-shopping-cart"></span></h1  >
+                   Registro Categoria <span class="glyphicon glyphicon-list-alt"></span></h1  >
          
 
         
