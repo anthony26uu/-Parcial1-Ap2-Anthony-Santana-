@@ -12,12 +12,13 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
 {
     public partial class RPresupuesto : System.Web.UI.Page
     {
-        Presupuestos p = new Presupuestos();
+        Presupuestos presupuestos = new Presupuestos();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
             TextFecha.Text = (DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
-
+            TextBoxID.Focus();
             ScriptResourceDefinition myScriptResDef = new ScriptResourceDefinition();
             myScriptResDef.Path = "~/Scripts/jquery-1.4.2.min.js";
             myScriptResDef.DebugPath = "~/Scripts/jquery-1.4.2.js";
@@ -25,7 +26,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
             myScriptResDef.CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.js";
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery", null, myScriptResDef);
 
-            TextBoxID.Focus();
+            
         }
 
         private void Limpiar()
@@ -33,9 +34,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
             TextBoxDescrip.Text = "";
             TextBoxMonto.Text = "";
             TextBoxID.Text = "";
-
             TextFecha.Text = (DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
-
             RequiredFieldValidator5.Text = "";
             RequiredFieldValidator6.Text = "";
             RequiredFieldValidator1.Text = "";
@@ -49,58 +48,70 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
             Limpiar();
         }
 
+        public Presupuestos LlenarCampos()
+        {
+            presupuestos.PresupuestoId = Utilidades.TOINT(TextBoxID.Text);
+            presupuestos.Descripcion = TextBoxDescrip.Text;
+            presupuestos.Fecha = Convert.ToDateTime(TextFecha.Text);
+            presupuestos.Monto = Convert.ToDecimal(TextBoxMonto.Text);
+            return presupuestos;
+        }
+
+
         protected void Button2_Click(object sender, EventArgs e)
         {
 
-            var guardar = new Presupuestos();
+           
             int id = 0;
-            try
-            {
+           
                 if (IsValid)
                 {
 
-                    guardar.PresupuestoId = (Utilidades.TOINT(TextBoxID.Text));
-                    guardar.Descripcion = TextBoxDescrip.Text;
-                    guardar.Monto = Convert.ToDecimal(TextBoxMonto.Text);
-                    guardar.Fecha = Convert.ToDateTime(TextFecha.Text);
-                 ///   guardar.IDCategoria = DropDownList1.va;
-                    guardar.NombreCategoria = DropDownList1.Text;
+                    presupuestos =   LlenarCampos();
 
 
-
-
-                    if (id != guardar.PresupuestoId)
+                    if (id != presupuestos.PresupuestoId)
                     {
 
-                        PresupuestoBLL.Mofidicar(guardar);
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Presupuesto modificado con exito');</script>");
+                        if (PresupuestoBLL.Mofidicar(presupuestos))
+                        {
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Presupuesto modificado con exito');</script>");
+
+                        }
+                        else
+                        {
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Presupuesto No pudo ser modificado');</script>");
+
+                        }
 
 
                     }
                     else
                     {
-                        PresupuestoBLL.Mofidicar(guardar);
-                        PresupuestoBLL.Guardar(guardar);
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Nuevo Presupuesto agregado!');</script>");
+
+                        if (PresupuestoBLL.Guardar(presupuestos))
+                        {
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Nuevo Presupuesto agregado!');</script>");
+
+                        }
+                        else
+                        {
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se pudo  agregado presupuesto');</script>");
+
+                        }
 
 
                     }
 
-
-
                 }
                 Limpiar();
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
+
+            
         }
 
         protected void ButtonEliminar_Click(object sender, EventArgs e)
         {
-
             if (string.IsNullOrWhiteSpace(TextBoxID.Text))
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No Existe Presupuesto con este id');</script>");
@@ -111,21 +122,23 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
             else
             {
                 int id = int.Parse(TextBoxID.Text);
-                var bll = new PresupuestoBLL();
-                var presu = PresupuestoBLL.Buscar(p => p.PresupuestoId == id);
-                if (PresupuestoBLL.Eliminar(presu))
-                {
 
+                var presu = PresupuestoBLL.Buscar(p => p.PresupuestoId == id);
+                if (presu != null)
+                {
+                    PresupuestoBLL.Eliminar(presu);
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('El Presupuesto se ha Eliminado  con exito');</script>");
 
                     Limpiar();
                 }
+
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se pudo eliminar El Presupuesto');</script>");
-                   
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se pudo eliminar El Presupuesto compruebe existencia');</script>");
+                    Limpiar();
                 }
             }
+
 
         }
 
@@ -136,7 +149,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
             {
 
 
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No Existe Presupuesto con este ido');</script>");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No Existe Presupuesto con ese id');</script>");
                 Limpiar();
             }
             else
@@ -153,7 +166,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
                     TextBoxDescrip.Text = presu.Descripcion;
                     DropDownList1.Text = presu.NombreCategoria;
 
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Resultados');</script>");
+                 //   Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Resultados');</script>");
 
 
                 }
@@ -161,7 +174,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
                 {
 
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No Existe presupuesto ese id');</script>");
-
+                    Limpiar();
 
                 }
             }

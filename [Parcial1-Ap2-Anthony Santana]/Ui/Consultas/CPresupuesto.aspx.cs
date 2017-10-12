@@ -20,10 +20,11 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
             myScriptResDef.CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.js";
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery", null, myScriptResDef);
 
-            Presupuestos presupuesto = new Presupuestos();
-            PresupuestoGrid.DataSource = PresupuestoBLL.GetListodo();
-            PresupuestoGrid.DataBind();
             Lista = PresupuestoBLL.GetListodo();
+            Presupuestos presupuesto = new Presupuestos();
+            PresupuestoGrid.DataSource = Lista;
+            PresupuestoGrid.DataBind();
+            
             buscaText.Focus();
             
 
@@ -37,10 +38,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
             if (DropFiltro.SelectedIndex == 0)
             {
                 buscaText.Text = "";
-
-
-
-                if (PresupuestoBLL.GetListodo().Count == 0)
+                if (Lista.Count == 0)
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado Presupuestos');</script>");
                     buscaText.Text = "";
@@ -56,21 +54,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
             }
             else if (DropFiltro.SelectedIndex == 1)
             {
-
-
-                if (string.IsNullOrWhiteSpace(buscaText.Text))
-                {
-
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Campo ID Vaccio');</script>");
-                    buscaText.Text = "";
-                    buscaText.Focus();
-                }
-                else
-                {
-
-
-                    if (PresupuestoBLL.GetList(p => p.PresupuestoId == id) != null)
-                    {
+                
                         Lista = PresupuestoBLL.GetList(p => p.PresupuestoId == id);
 
                         if (Lista.Count == 0)
@@ -84,28 +68,15 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                             PresupuestoGrid.DataSource = Lista;
                             PresupuestoGrid.DataBind();
                         }
+                                        
 
-
-
-
-
-
-                    }
-                    else if (PresupuestoGrid.DataSource == null)
-                    {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado presupuesto con este Id');</script>");
-                        buscaText.Text = "";
-                        buscaText.Focus();
-
-                    }
-
-                }
+                
             }
 
             else if (DropFiltro.SelectedIndex == 2)
             {
 
-                if (desdeFecha.Text == "" && desdeFecha.Text == null)
+                if (desdeFecha.Text == "" && desdeFecha.Text == "")
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fecha invalida ');</script>");
 
