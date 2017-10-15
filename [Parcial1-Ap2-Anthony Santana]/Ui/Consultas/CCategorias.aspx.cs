@@ -128,81 +128,59 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
 
             }
 
-
+            //Consulta Por monto
             else if (DropFiltro.SelectedIndex == 3)
             {
-
-
-
                 if (string.IsNullOrWhiteSpace(buscaText.Text))
                 {
-
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Campo ID Vaccio');</script>");
                     buscaText.Text = "";
                     buscaText.Focus();
                 }
                 else
-                {
-
-                   
-                  
-                    if (CategoriaBLL.GetList(p => p.CategoriaId == id) != null)
-                    {
-                       
-
+                {                    
                         if (Lista.Count == 0)
                         {
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado Categorias con este Id');</script>");
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado Categorias ');</script>");
                             buscaText.Text = "";
                             buscaText.Focus();
                         }
                         else
                         {
+                            SqlConnection con = new SqlConnection();
+                            con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\antho\Desktop\Nueva carpeta\[Parcial1-Ap2-Anthony Santana]\[Parcial1-Ap2-Anthony Santana]\App_Data\RegistrosDb.mdf;Integrated Security=True;Connect Timeout=30";
+                            SqlCommand command = new SqlCommand();
+                            command.Connection = con;
+                            command.CommandText = " SELECT  Presupuestos.CategoriaId, c.NombreCategoria AS Descripcion,  SUM(Presupuestos.Monto) AS Total  FROM Presupuestos INNER JOIN Categorias c ON Presupuestos.CategoriaId = c.CategoriaId where Presupuestos.CategoriaId = '" + Utilidades.TOINT(buscaText.Text) + "' GROUP BY Presupuestos.CategoriaId,c.NombreCategoria  ";
+                            DataTable data = new DataTable();
+                            SqlDataAdapter adapter = new SqlDataAdapter(command);
 
-
-                          
-
-                            SqlConnection cn = new SqlConnection("server =Data Source=(LocalDB); database = RegistrosDb; uid =; pwd = ");
-                            SqlCommand data = new SqlCommand("select Monto from Presupuesto where CategoriaId= '" + Utilidades.TOINT(buscaText.Text) + "' ", cn);
-
-                            SqlDataAdapter db = new SqlDataAdapter(data);
-                            DataTable dt = new DataTable();
-
-                                    db.Fill(dt);
-
-                            if (data.Connection== null)
+                            if (con.ConnectionString== null)
                             {
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fallo');</script>");
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fallo en CONEXIÓN ');</script>");
 
 
                             }else
                             {
-                                PresupuestoGrid.DataSource = dt;
+
+                            if (adapter.Fill(data) != 0)
+                            {
+                                PresupuestoGrid.DataSource = data;
                                 PresupuestoGrid.DataBind();
-                                cn.Close();
-
+                                con.Close();
                                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Cargo Correctamente');</script>");
-
-
+                                                              
                             }
-
-
+                            else
+                            {
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se registro Presupuesto con este ID');</script>");
+                                
+                            }
 
                         }
 
-
-
-
-
-
                     }
-                    else if (PresupuestoGrid.DataSource == null)
-                    {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado Categoria con este Id');</script>");
-                        buscaText.Text = "";
-                        buscaText.Focus();
-
-                    }
+                   
                 }
 
                 }
