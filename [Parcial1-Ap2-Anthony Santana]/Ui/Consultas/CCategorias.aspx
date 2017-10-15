@@ -173,11 +173,10 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#00547E" />
         </asp:GridView>
-        <br />
-        <a href="../Reportes/Ventanas/CategoraReport.aspx" class="btn btn-info btn-lg">
+        &nbsp;<br />
+        <a href="../Reportes/Ventanas/CategoraReport.aspx" class="btn btn-info btn-lg" id="Imprimir">
             <span class="glyphicon glyphicon-print"></span>Imprimir
-        </a>
-        <br />
+        </a>&nbsp;<br />
 
 
     </form>

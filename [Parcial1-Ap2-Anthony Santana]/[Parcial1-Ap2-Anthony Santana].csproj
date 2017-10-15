@@ -156,6 +156,7 @@
     <Content Include="Ui\Registros\RCategoria.aspx" />
     <Content Include="Ui\Registros\RPresupuesto.aspx" />
     <Content Include="Ui\Reportes\Ventanas\CategoraReport.aspx" />
+    <Content Include="Ui\Reportes\Ventanas\CategoriaReportAgrupado.aspx" />
     <Content Include="Ui\Reportes\Ventanas\PresupuestoReport.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -215,6 +216,13 @@
     <Compile Include="Ui\Reportes\Ventanas\CategoraReport.aspx.designer.cs">
       <DependentUpon>CategoraReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Ui\Reportes\Ventanas\CategoriaReportAgrupado.aspx.cs">
+      <DependentUpon>CategoriaReportAgrupado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ui\Reportes\Ventanas\CategoriaReportAgrupado.aspx.designer.cs">
+      <DependentUpon>CategoriaReportAgrupado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Reportes\Ventanas\PresupuestoReport.aspx.cs">
       <DependentUpon>PresupuestoReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -238,6 +246,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Ui\Reportes\CategoriaReportAgrupado.rdlc" />
     <EmbeddedResource Include="Ui\Reportes\CategoriaReport .rdlc" />
     <EmbeddedResource Include="Ui\Reportes\PresupuestoReport.rdlc" />
   </ItemGroup>

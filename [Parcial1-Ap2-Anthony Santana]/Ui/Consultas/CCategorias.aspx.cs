@@ -17,6 +17,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
 
         public static List<Categorias> Lista { get; set; }
         public static List<Presupuestos> Listat { get; set; }
+       
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -138,8 +139,13 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                     buscaText.Focus();
                 }
                 else
-                {                    
-                        if (Lista.Count == 0)
+
+                {
+
+                 
+
+
+                    if (Lista.Count == 0)
                         {
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado Categorias ');</script>");
                             buscaText.Text = "";
@@ -151,9 +157,11 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                             con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\antho\Desktop\Nueva carpeta\[Parcial1-Ap2-Anthony Santana]\[Parcial1-Ap2-Anthony Santana]\App_Data\RegistrosDb.mdf;Integrated Security=True;Connect Timeout=30";
                             SqlCommand command = new SqlCommand();
                             command.Connection = con;
-                            command.CommandText = " SELECT  Presupuestos.CategoriaId, c.NombreCategoria AS Descripcion,  SUM(Presupuestos.Monto) AS Total  FROM Presupuestos INNER JOIN Categorias c ON Presupuestos.CategoriaId = c.CategoriaId where Presupuestos.CategoriaId = '" + Utilidades.TOINT(buscaText.Text) + "' GROUP BY Presupuestos.CategoriaId,c.NombreCategoria  ";
+                            command.CommandText = " SELECT  Presupuestos.CategoriaId, c.NombreCategoria AS Descripcion,   SUM(Presupuestos.Monto) AS Total  FROM Presupuestos INNER JOIN Categorias c ON Presupuestos.CategoriaId = c.CategoriaId where Presupuestos.CategoriaId = '" + Utilidades.TOINT(buscaText.Text) + "' GROUP BY Presupuestos.CategoriaId,c.NombreCategoria  ";
+
                             DataTable data = new DataTable();
                             SqlDataAdapter adapter = new SqlDataAdapter(command);
+
 
                             if (con.ConnectionString== null)
                             {
@@ -163,13 +171,19 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                             }else
                             {
 
-                            if (adapter.Fill(data) != 0)
+                           
+                            if ( adapter.Fill(data) != 0)
                             {
-                                PresupuestoGrid.DataSource = data;
+                               PresupuestoGrid.DataSource = data;
+                              
                                 PresupuestoGrid.DataBind();
                                 con.Close();
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Cargo Correctamente');</script>");
-                                                              
+
+                             
+
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Resultados de su consulta agrupada');</script>");
+                                                         
+                                
                             }
                             else
                             {
