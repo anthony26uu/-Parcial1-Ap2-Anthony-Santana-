@@ -14,19 +14,18 @@ namespace Entidades
         public DateTime Fecha { get; set; }
         public string Descripcion { get; set; }
         public decimal Monto { get; set; }
-        public string NombreCategoria { get; set; }
-        //public int IDCategoria { get; set; }
+      
+        public int CategoriaId { get; set; }
 
 
-        public Presupuestos(int presupuestoId, DateTime fecha, string descripcion, decimal monto, string nombrecategoria)
+        public Presupuestos(int presupuestoId, DateTime fecha, string descripcion, decimal monto)
         {
             this.PresupuestoId = presupuestoId;
             this.Fecha = fecha;
             this.Descripcion = descripcion;
             this.Monto = monto;
-          ///  this.IDCategoria = iDCategoria;
-            this.NombreCategoria = nombrecategoria;
-
+        
+          
 
 
         }

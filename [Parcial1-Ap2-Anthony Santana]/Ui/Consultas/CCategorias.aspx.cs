@@ -7,12 +7,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.Data;
+using System.Data.SqlClient;
+
 namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
 {
     public partial class CCategorias : System.Web.UI.Page
     {
 
         public static List<Categorias> Lista { get; set; }
+        public static List<Presupuestos> Listat { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -120,15 +124,90 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                         PresupuestoGrid.DataBind();
                     }
 
-
-
-
-
                 }
 
             }
 
-        }
+
+            else if (DropFiltro.SelectedIndex == 3)
+            {
+
+
+
+                if (string.IsNullOrWhiteSpace(buscaText.Text))
+                {
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Campo ID Vaccio');</script>");
+                    buscaText.Text = "";
+                    buscaText.Focus();
+                }
+                else
+                {
+
+                   
+                  
+                    if (CategoriaBLL.GetList(p => p.CategoriaId == id) != null)
+                    {
+                       
+
+                        if (Lista.Count == 0)
+                        {
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado Categorias con este Id');</script>");
+                            buscaText.Text = "";
+                            buscaText.Focus();
+                        }
+                        else
+                        {
+
+
+                          
+
+                            SqlConnection cn = new SqlConnection("server =Data Source=(LocalDB); database = RegistrosDb; uid =; pwd = ");
+                            SqlCommand data = new SqlCommand("select Monto from Presupuesto where CategoriaId= '" + Utilidades.TOINT(buscaText.Text) + "' ", cn);
+
+                            SqlDataAdapter db = new SqlDataAdapter(data);
+                            DataTable dt = new DataTable();
+
+                                    db.Fill(dt);
+
+                            if (data.Connection== null)
+                            {
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fallo');</script>");
+
+
+                            }else
+                            {
+                                PresupuestoGrid.DataSource = dt;
+                                PresupuestoGrid.DataBind();
+                                cn.Close();
+
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Cargo Correctamente');</script>");
+
+
+                            }
+
+
+
+                        }
+
+
+
+
+
+
+                    }
+                    else if (PresupuestoGrid.DataSource == null)
+                    {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado Categoria con este Id');</script>");
+                        buscaText.Text = "";
+                        buscaText.Focus();
+
+                    }
+                }
+
+                }
+
+            }
 
         protected void Button1_Click(object sender, EventArgs e)
         {

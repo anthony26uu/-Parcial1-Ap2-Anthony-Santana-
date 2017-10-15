@@ -158,12 +158,8 @@
           
             <!--Texbox -->
 
-            <asp:DropDownList ID="DropDownList1" placeholder="Monto $ " class="input-lg" runat="server" Height="41px" Width="199px" ValidationGroup="guardar" DataSourceID="SqlDataSource2" DataTextField="NombreCategoria" DataValueField="CategoriaId">
+            <asp:DropDownList ID="DropDownList1" placeholder="Monto $ " class="input-lg" runat="server" Height="41px" Width="199px" ValidationGroup="guardar">
             </asp:DropDownList>
-
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConStr %>" SelectCommand="SELECT [NombreCategoria], [CategoriaId] FROM [Categorias]"></asp:SqlDataSource>
-            <asp:EntityDataSource ID="EntityDataSource1" runat="server">
-            </asp:EntityDataSource>
 
             <asp:TextBox ID="TextBoxMonto" placeholder="Monto $ " class="input-lg" runat="server" Height="30px" Width="199px" ValidationGroup="guardar"></asp:TextBox>
 

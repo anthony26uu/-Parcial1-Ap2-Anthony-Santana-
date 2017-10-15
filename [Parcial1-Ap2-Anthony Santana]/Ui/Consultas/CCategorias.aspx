@@ -136,6 +136,7 @@
             <asp:ListItem>ID</asp:ListItem>
            
             <asp:ListItem>Nombre</asp:ListItem>
+            <asp:ListItem>Monto total x Categoria</asp:ListItem>
         </asp:DropDownList>
 
 

@@ -26,7 +26,11 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
             myScriptResDef.CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.js";
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery", null, myScriptResDef);
 
-            
+
+            if (!Page.IsPostBack)
+            {
+                LlenarDrop();
+            }
         }
 
         private void Limpiar()
@@ -42,6 +46,17 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
 
         }
 
+        private void LlenarDrop()
+        {
+            List<Entidades.Categorias> ListaDrop = BLL.CategoriaBLL.GetListodo();
+
+            DropDownList1.DataSource = ListaDrop;
+            DropDownList1.DataValueField = "CategoriaId";
+            DropDownList1.DataTextField = "NombreCategoria";
+            DropDownList1.DataBind();
+
+        }
+
 
         protected void Button4_Click(object sender, EventArgs e)
         {
@@ -54,6 +69,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
             presupuestos.Descripcion = TextBoxDescrip.Text;
             presupuestos.Fecha = Convert.ToDateTime(TextFecha.Text);
             presupuestos.Monto = Convert.ToDecimal(TextBoxMonto.Text);
+            presupuestos.CategoriaId = Utilidades.TOINT(DropDownList1.Text);
             return presupuestos;
         }
 
@@ -164,7 +180,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Registros
                     TextBoxMonto.Text = Convert.ToString(presu.Monto);
                     TextFecha.Text = (presu.Fecha.Year + "-" + presu.Fecha.Month + "-" + presu.Fecha.Day);
                     TextBoxDescrip.Text = presu.Descripcion;
-                    DropDownList1.Text = presu.NombreCategoria;
+                 
 
                  //   Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Resultados');</script>");
 
