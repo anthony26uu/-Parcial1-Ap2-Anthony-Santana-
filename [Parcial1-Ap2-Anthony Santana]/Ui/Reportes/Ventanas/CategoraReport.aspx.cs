@@ -21,7 +21,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Reportes.Ventanas
 
 
 
-            this.ReportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("CategoriaDataset", Consultas.CCategorias.Lista));
+            this.ReportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("CategoriaDataset", Consultas.CCategorias.Listat));
 
             this.ReportViewer1.LocalReport.Refresh();
 

@@ -11,8 +11,7 @@ namespace Entidades
         [Key]
         public int CategoriaId { get; set; }
         public string NombreCategoria { get; set; }
-
-
+     //   public double Monto { get; set; }
         public Categorias()
         {
 

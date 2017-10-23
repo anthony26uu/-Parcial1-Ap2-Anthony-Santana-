@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CCategorias.aspx.cs" Inherits="_Parcial1_Ap2_Anthony_Santana_.Ui.Consultas.CCategorias" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="_Parcial1_Ap2_Anthony_Santana_.Menu" %>
+
+
 
 
 <!DOCTYPE html>
@@ -12,11 +14,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -86,34 +89,27 @@
                 .boton {
                 }
             </style>
-
         </head>
-       
-            
-            <body>
+        <body>
             <div id="header">
                 <ul class="nav">
 
-
-
                     <li><a href="">Registros</a>
                         <ul>
-                            <li><a href="../Registros/RPresupuesto.aspx">Registro Presupuestos</a></li>
-                             <li><a href="../Registros/RCategoria.aspx">Registro Categoria</a></li>
+                            <li><a href="RPresupuesto.aspx">Presupuesto</a></li>
+
+
                         </ul>
                     </li>
                     <li><a href="">Consultas</a>
                         <ul>
-                            <li><a href="CPresupuesto.aspx">Presupuesto</a></li>
-                        
-						
+                            <li><a href="../Consultas/CPresupuesto.aspx">Presupuesto</a></li>
+                            <li><a href="../Consultas/CCategorias.aspx">Categorias</a></li>
 
                         </ul>
                     </li>
 
-                    </li>
-                <li></li>
-                    <li></li>
+
                     <li>
                         <br />
                     </li>
@@ -123,65 +119,23 @@
         </html>
 
 
-        <header>
-            <h1 class="page-header text-center">CONSULTA CATEGORIAS <span class="glyphicon glyphicon-list-alt"></span></h1>
-        </header>
-
-
-
-        <span class="label label-primary">Selecione-</span>
-        <asp:DropDownList ID="DropFiltro" CssClass="custom-select" runat="server" Height="30px">
-
-            <asp:ListItem>Todo</asp:ListItem>
-            <asp:ListItem>ID</asp:ListItem>
-           
-            <asp:ListItem>Nombre</asp:ListItem>
-            <asp:ListItem>Monto total x Categoria</asp:ListItem>
-        </asp:DropDownList>
 
 
 
 
-
-        <span class="label label-primary">ID / Nombre</span>
-
-        <asp:TextBox ID="buscaText" runat="server" class="input-lg" placeholder="ID o Descripcion" Height="30px"></asp:TextBox>
-
-        <asp:Button ID="Button1" runat="server" Text="Buscar" Height="36px" Width="88px" CssClass="btn btn-primary btn-md boton" OnClick="Button1_Click" ValidationGroup="buscar" />
-
-        
-
-        <br />
-  
-     
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-  
-     
-        <br />
-            <br />
+        <h1 class="page-header text-center">INICIO <span class="glyphicon glyphicon-list-alt"></span></h1>
+        <p class="page-header text-center">
+            <asp:Image ID="Image1" runat="server" Height="363px" ImageUrl="~/Ui/descarga.jpg" Width="874px" />
+        </p>
 
 
 
-        <asp:GridView ID="PresupuestoGrid" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="18px" Width="519px">
-            <FooterStyle BackColor="White" ForeColor="#000066" />
-            <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-            <RowStyle ForeColor="#000066" />
-            <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#007DBB" />
-            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-            <SortedDescendingHeaderStyle BackColor="#00547E" />
-        </asp:GridView>
-        &nbsp;<br />
-        <a href="../Reportes/Ventanas/CategoraReport.aspx" class="btn btn-info btn-lg" id="Imprimir">
-            <span class="glyphicon glyphicon-print"></span>Imprimir
-        </a>&nbsp;<a href="../Reportes/Ventanas/CategoriaReportAgrupado.aspx" class="btn btn-info btn-lg" id="Imprimir2"><span class="glyphicon glyphicon-print"></span>Imprimir2
-        </a>
-        <br />
+
+        <!--Texbos Buscar y descrpcion o nombre -->
 
 
     </form>
+
     <!--Mensaje de copyright -->
     <div class="list-group-item-success">
 
@@ -192,5 +146,9 @@
             <p><span class="glyphicon glyphicon-copyright-mark"></span>Anthony Javier Santana  Polanco 2014-0527       </p>
 
         </div>
+
+    </div>
+
+
 </body>
 </html>

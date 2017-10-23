@@ -2,6 +2,8 @@
 using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -159,6 +161,107 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
 
                    
                   
+                }
+
+            }
+
+            //Consulta Por monto
+            else if (DropFiltro.SelectedIndex == 4)
+            {
+                if (string.IsNullOrWhiteSpace(buscaText.Text))
+                {
+                     buscaText.Text = "";
+                    buscaText.Focus();
+                }
+                else
+
+                {
+
+
+
+
+                    if (Lista.Count == 0)
+                    {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se han registrado Categorias ');</script>");
+                        buscaText.Text = "";
+                        buscaText.Focus();
+                    }
+                    else
+                    {
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        SqlConnection con = new SqlConnection();
+                        con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\antho\Desktop\Nueva carpeta\[Parcial1-Ap2-Anthony Santana]\[Parcial1-Ap2-Anthony Santana]\App_Data\RegistrosDb.mdf;Integrated Security=True;Connect Timeout=30";
+                        SqlCommand command = new SqlCommand();
+                        command.Connection = con;
+                        command.CommandText = " SELECT  Presupuestos.CategoriaId, c.NombreCategoria AS Descripcion, " +
+                            "  SUM(Presupuestos.Monto) AS Total  " +
+                            "FROM Presupuestos INNER JOIN Categorias c ON Presupuestos.CategoriaId = c.CategoriaId " +
+                            "where Presupuestos.CategoriaId = '" + Utilidades.TOINT(buscaText.Text) + "' " +
+                            "GROUP BY Presupuestos.CategoriaId,c.NombreCategoria  ";
+
+                        DataTable data = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        SqlDataReader reader = null;
+                        con.Open();
+                        reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            Entidades.Presupuestos obj = new Presupuestos();
+                            obj.CategoriaId = Convert.ToInt32(reader["CategoriaId"]);
+                            obj.Descripcion = Convert.ToString(reader["Descripcion"]);
+                            obj.Monto= Convert.ToDecimal(reader["Total"].ToString());
+                            Lista.Add(obj);
+
+
+                        }
+
+
+                        if (con.ConnectionString == null)
+                        {
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fallo en CONEXIÓN ');</script>");
+
+
+                        }
+                        else
+                        {
+
+                            con.Close();
+                            if (adapter.Fill(data) != 0)
+                            {
+                                PresupuestoGrid.DataSource = data;
+
+                                PresupuestoGrid.DataBind();
+                                con.Close();
+
+
+
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Resultados de su consulta agrupada');</script>");
+
+
+                            }
+                            else
+                            {
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No se registro Presupuesto con este ID');</script>");
+
+                            }
+
+                        }
+
+                    }
+
                 }
 
             }

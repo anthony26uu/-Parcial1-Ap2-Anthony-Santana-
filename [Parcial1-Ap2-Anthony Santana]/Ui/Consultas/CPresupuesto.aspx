@@ -135,6 +135,7 @@
             <asp:ListItem>ID</asp:ListItem>
             <asp:ListItem>Fecha</asp:ListItem>
             <asp:ListItem>Nombre</asp:ListItem>
+            <asp:ListItem>Monto</asp:ListItem>
         </asp:DropDownList>
 
 
@@ -177,7 +178,7 @@
             <SortedDescendingHeaderStyle BackColor="#00547E" />
         </asp:GridView>
         <br />
-        <a href="../Reportes/Ventanas/PresupuestoReport.aspx" class="btn btn-info btn-lg">
+        <a href="../Reportes/Ventanas/CategoriaReportAgrupado.aspx" class="btn btn-info btn-lg">
             <span class="glyphicon glyphicon-print"></span>Imprimir
         </a>
         <br />

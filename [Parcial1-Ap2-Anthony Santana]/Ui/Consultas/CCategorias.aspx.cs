@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 
 using System.Data;
 using System.Data.SqlClient;
+using Microsoft.Reporting.WinForms;
 
 namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
 {
@@ -161,9 +162,27 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
 
                             DataTable data = new DataTable();
                             SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        SqlDataReader reader = null;
+                        con.Open();
+                        reader = command.ExecuteReader();
+
+                        ///Listat = BLL.PresupuestoBLL.GetListodo();
+                        while (reader.Read())
+                        {
+                            Entidades.Categorias obj = new Categorias();
+                            obj.CategoriaId = Convert.ToInt32(reader["CategoriaId"]);
+                            //  obj.NombreCategoria = reader["NombreCategoria"].ToString();
+                            obj.NombreCategoria = Convert.ToString(reader["Descripcion"]);
+                          //  obj.Monto = Convert.ToDouble(reader["Total"]);
+                            
+                        //    obj.= Convert.ToDecimal(reader["TOTAL"].ToString());
+                            Lista.Add(obj);
+                          
+                          
+                        }
 
 
-                            if (con.ConnectionString== null)
+                        if (con.ConnectionString== null)
                             {
                                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fallo en CONEXIÓN ');</script>");
 
@@ -171,7 +190,7 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
                             }else
                             {
 
-                           
+                            con.Close();
                             if ( adapter.Fill(data) != 0)
                             {
                                PresupuestoGrid.DataSource = data;
@@ -204,6 +223,18 @@ namespace _Parcial1_Ap2_Anthony_Santana_.Ui.Consultas
         protected void Button1_Click(object sender, EventArgs e)
         {
             Selecionar(Utilidades.TOINT(buscaText.Text));
+        }
+
+
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            DataTable dt = (DataTable)PresupuestoGrid.DataSource;
+
+            PresupuestoGrid.DataSource = dt;
+            PresupuestoGrid.DataBind();
+
+
         }
     }
 }

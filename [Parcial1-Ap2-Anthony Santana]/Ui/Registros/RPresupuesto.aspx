@@ -16,9 +16,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-  
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -99,8 +96,8 @@
 
                     <li><a href="">Registros</a>
                         <ul>
-                           
-                             <li><a href="RCategoria.aspx">Registro Categoria</a></li>
+
+                            <li><a href="RCategoria.aspx">Registro Categoria</a></li>
 
 
                         </ul>
@@ -109,7 +106,7 @@
                         <ul>
                             <li><a href="../Consultas/CPresupuesto.aspx">Presupuestos</a></li>
                             <li><a href="../Consultas/CCategorias.aspx">Categorias</a></li>
-						
+
 
                         </ul>
 
@@ -152,10 +149,10 @@
 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxDescrip" ErrorMessage="**" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
-            <asp:TextBox ID="TextFecha" runat="server"  class="input-lg" ReadOnly="True" Width="201px" Height="30px" ValidationGroup="guardar"></asp:TextBox>
+            <asp:TextBox ID="TextFecha" runat="server" class="input-lg" ReadOnly="True" Width="201px" Height="30px" ValidationGroup="guardar"></asp:TextBox>
 
 
-          
+
             <!--Texbox -->
 
             <asp:DropDownList ID="DropDownList1" placeholder="Monto $ " class="input-lg" runat="server" Height="41px" Width="199px" ValidationGroup="guardar">
